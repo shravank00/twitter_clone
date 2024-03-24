@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :follow, :unfollow]
 
   def edit
     respond_to do |format|
@@ -14,6 +14,20 @@ class UsersController < ApplicationController
       else
         format.js { render :edit}
       end
+    end
+  end
+
+  def follow
+    current_user.following << @user unless current_user.following.include?(@user)
+    respond_to do |format|
+      format.js # Render follow.js.erb
+    end
+  end
+
+  def unfollow
+    current_user.following.delete(@user)
+    respond_to do |format|
+      format.js # Render follow.js.erb
     end
   end
 
