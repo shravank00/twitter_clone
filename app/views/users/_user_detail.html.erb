@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-title text-center">
+    <h2>Profile</h2>
+  </div>
+  <div class="card-body" id="user-detail">
+    <p class='text-center'>
+      <%= image_tag user_image(current_user), height: 100, width: 100, class: 'rounded-circle' %>
+    </p>
+    <p><span>Name: </span><span><%= current_user.name %></span></p>
+    <p>
+      <span>Username: </span><span><%= current_user.username %></span>
+    </p>
+    <p>
+      <span>Email: </span><span><%= current_user.email %></span>
+    </p>
+    <%= link_to 'Edit', edit_user_path(current_user), class: 'btn btn-primary edit-user-btn', data: { turbo: false }, remote: true %>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 module ApplicationHelper
   def user_name(tweet)
-    tweet.user.username || 'Unknown'
+    tweet.user.name || 'User'
   end
 end
