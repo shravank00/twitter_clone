@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: @tweet, id: 'new-tweet-form', data: {turbo: false}) do |form| %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      <%= form.rich_text_area :content, placeholder: "What's on your mind?", class: "form-control" %>
+      <%= form.submit "Post", class: "btn btn-primary mt-3", id: 'submit-button' %>
+    <% end %>
+  </div>
+</div>

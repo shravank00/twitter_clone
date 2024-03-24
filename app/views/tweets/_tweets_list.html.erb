@@ -1,0 +1,19 @@
+<div class="card mt-3" id="tweet_<%= tweet.id %>">
+  <div class="card-body">
+    <p>
+      <span><%= user_name(tweet) %></span>
+      <span><%= link_to 'Follow', '#', class:"btn btn-primary rounded-8" %></span>
+      <% if tweet.user == current_user %>
+        <span class="float-end">
+          <%= link_to 'Edit', edit_tweet_path(tweet), class: 'edit-tweet-btn', remote: true %>
+            |
+          <%= link_to 'Delete', tweet_path(tweet), class: 'delete-tweet', data: { turbo: false } %>
+        </span>
+      <% end %>
+    </p>
+    <div id="tweet_<%= tweet.id %>_content">
+      <%= render partial: 'tweets/tweet', locals: { tweet: tweet} %>
+    </div>
+    <!-- Add more tweet details as needed -->
+  </div>
+</div>

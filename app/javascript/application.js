@@ -3,5 +3,8 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "trix"
 import "@rails/actiontext"
+import "jquery"
+import "jquery_ujs"
 import 'popper'
 import 'bootstrap'
+import './tweets'

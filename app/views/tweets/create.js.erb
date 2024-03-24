@@ -1,0 +1,3 @@
+$('#tweets-list').html("<%= j(render partial: 'tweets/tweets_list', collection: @tweets, as: :tweet) %>");
+document.getElementById("new-tweet-form").reset();
+$('#submit-button').prop('disabled', false);

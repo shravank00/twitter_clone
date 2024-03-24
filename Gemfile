@@ -46,6 +46,7 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 
 gem 'bootstrap', '~> 5.3.2'
+gem "jquery-rails"
 
 # Use devise gem for authentication
 gem 'devise'
