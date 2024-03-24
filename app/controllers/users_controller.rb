@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update!(user_params)
         format.js # render update.js.erb
       else
         format.js { render :edit}
