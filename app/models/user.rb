@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :tweets
   has_one_attached :avatar
+  validates :username, uniqueness: true, if: :username_changed?
 end

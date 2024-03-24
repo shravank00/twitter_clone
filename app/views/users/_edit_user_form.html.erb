@@ -1,0 +1,32 @@
+<%= form_with(model: current_user, url: user_path(current_user), class: 'edit-user-form', multipart: true, data: { turbo: false }) do |form| %>
+  <div class='mt-2'>
+    <%= form.label :avatar, class: 'form-label' %>
+    <%= form.file_field :avatar, class: 'form-control' %>
+  </div>
+
+  <div class='mt-2'>
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class='mt-2'>
+    <%= form.label :username, class: 'form-label' %>
+    <%= form.text_field :username, class: 'form-control' %>
+    <% @user.errors.full_messages_for(:username).each do |message| %>
+      <div class="errors text-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class='mt-2'>
+    <%= form.label :email, class: 'form-label' %>
+    <%= form.text_field :email, class: 'form-control' %>
+    <% @user.errors.full_messages_for(:email).each do |message| %>
+      <div class="errors text-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class='mt-2'>
+    <%= form.submit "Update Profile", class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
