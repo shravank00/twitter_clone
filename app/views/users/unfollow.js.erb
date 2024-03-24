@@ -1,0 +1,6 @@
+alert("helloooooo");
+var unfollowButton = $('.unfollow-<%= @user.id %>-link');
+console.log(unfollowButton)
+unfollowButton.text('Follow');
+unfollowButton.attr('href', '/users/<%= @user.id %>/follow');
+unfollowButton.attr('data-method', 'post');
