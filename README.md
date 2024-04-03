@@ -5,8 +5,11 @@ This is a simple Twitter clone built using Ruby on Rails 7. It allows users to c
 
 * User Authentication: Users can sign up, log in, and log out securely.
 
-* Tweet Creation: Users can create new tweets with a maximum character limit.
-Tweet Viewing: Users can view their own tweets and tweets from users they follow.
+* User Profile: Users can update their profile. They can add profile image.
+
+* Tweet Creation: Users can create new tweets.
+
+* Tweet Viewing: Users can view their own tweets and tweets from other users.
 
 * Follow/Unfollow: Users can follow and unfollow other users to see their tweets in their feed.
 
