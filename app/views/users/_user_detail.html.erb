@@ -3,16 +3,22 @@
     <h2>Profile</h2>
   </div>
   <div class="card-body" id="user-detail">
-    <p class='text-center'>
-      <%= image_tag user_image(current_user), height: 100, width: 100, class: 'rounded-circle' %>
-    </p>
-    <p><span>Name: </span><span><%= current_user.name %></span></p>
-    <p>
-      <span>Username: </span><span><%= current_user.username %></span>
-    </p>
-    <p>
-      <span>Email: </span><span><%= current_user.email %></span>
-    </p>
-    <%= link_to 'Edit', edit_user_path(current_user), class: 'btn btn-primary edit-user-btn', data: { turbo: false }, remote: true %>
+    <p class='text-center'><%= image_tag user_image(current_user), height: 100, width: 100, class: 'rounded-circle' %></p>
+    <p><span class="fw-bold">Name: </span><span><%= current_user.name %></span></p>
+    <p><span class="fw-bold">Username: </span><span><%= current_user.username %></span></p>
+    <p><span class="fw-bold">Email: </span><span><%= current_user.email %></span></p>
+
+    <%= link_to 'Edit', edit_user_path(current_user), class: 'btn btn-primary edit-user-btn w-100', data: { turbo: false }, remote: true %>
+    <hr/>
+    <div class="row">
+      <div class="col-6">
+        <span class="fw-bold" id="following-count"><%= current_user.following.count %></span>
+        <span>Following</span>
+      </div>
+      <div class="col-6">
+        <span class="fw-bold"><%= current_user.followers.count %></span>
+        <span>Followers</span>
+      </div>
+    </div>
   </div>
 </div>

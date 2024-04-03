@@ -1,5 +1,7 @@
-var unfollowButton = $('.unfollow-<%= @user.id %>-link');
+var unfollowButton = $('.follow-<%= @user.id %>-link');
 console.log(unfollowButton)
 unfollowButton.text('Follow');
 unfollowButton.attr('href', '/users/<%= @user.id %>/follow');
-unfollowButton.attr('data-method', 'post');
+unfollowButton.removeClass('btn-outline-primary').addClass('btn-primary');
+// Update following count
+$('#following-count').text('<%= j current_user.following.count %>');

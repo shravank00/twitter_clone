@@ -2,6 +2,9 @@
   <div class='mt-2'>
     <%= form.label :avatar, class: 'form-label' %>
     <%= form.file_field :avatar, class: 'form-control' %>
+    <% @user.errors.full_messages_for(:avatar).each do |message| %>
+      <div class="errors text-danger"><%= message %></div>
+    <% end %>
   </div>
 
   <div class='mt-2'>
@@ -26,7 +29,6 @@
   </div>
 
   <div class='mt-2'>
-    <%= form.submit "Update Profile", class: 'btn btn-primary' %>
+    <%= form.submit "Update Profile", class: 'btn btn-primary w-100' %>
   </div>
-
 <% end %>

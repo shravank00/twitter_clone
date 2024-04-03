@@ -8,8 +8,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    p "hello"
     respond_to do |format|
-      if @user.update!(user_params)
+      if @user.update(user_params)
+        p user_params
+        p @user.avatar
+        p "hiii"
         format.js # render update.js.erb
       else
         format.js { render :edit}
@@ -37,6 +41,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :avatar, :username, :email)
+      params.require(:user).permit(:avatar, :name, :username, :email)
     end
 end

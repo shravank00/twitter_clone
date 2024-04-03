@@ -3,24 +3,21 @@
     <p>
       <span>
         <%= image_tag user_image(tweet.user), height: 40, width: 40, class: 'rounded-circle' %>
-      <span>
+      </span>
       <span class="fw-bold"><%= tweet.user.name %></span>
       <span class="text-muted">@<%= user_name(tweet) %></span>
       <span>
-
-
-      <% if current_user.following.include?(tweet.user) %>
-        <%= link_to 'Unfollow', unfollow_user_path(tweet.user), class: "btn btn-primary unfollow-#{tweet.user_id}-link", remote: true, data: { user_id: tweet.user_id, method: :delete } %>
-      <% else %>
-        <%= link_to 'Follow', follow_user_path(tweet.user), class: "btn btn-primary follow-#{tweet.user_id}-link", remote: true, data: { user_id: tweet.user_id, method: :post } %>
-      <% end unless current_user == tweet.user %>
-
+        <% if current_user.following.include?(tweet.user) %>
+          <%= link_to 'Following', unfollow_user_path(tweet.user), class: "btn btn-outline-primary btn-sm follow-#{tweet.user_id}-link", remote: true, data: { user_id: tweet.user_id, method: :post } %>
+        <% else %>
+          <%= link_to 'Follow', follow_user_path(tweet.user), class: "btn btn-primary btn-sm follow-#{tweet.user_id}-link", remote: true, data: { user_id: tweet.user_id, method: :post } %>
+        <% end unless current_user == tweet.user %>
       </span>
       <% if tweet.user == current_user %>
         <span class="float-end">
           <%= link_to 'Edit', edit_tweet_path(tweet), class: 'edit-tweet-btn', remote: true %>
             |
-          <%= link_to 'Delete', tweet_path(tweet), class: 'delete-tweet', data: { turbo: false } %>
+          <%= link_to 'Delete', tweet_path(tweet), class: 'delete-tweet', data: { turbo: false }, method: :delete, remote: true %>
         </span>
       <% end %>
     </p>
