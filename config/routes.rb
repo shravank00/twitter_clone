@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       post 'follow'
-      delete 'unfollow'
+      post 'unfollow'
     end
   end
   resources :tweets

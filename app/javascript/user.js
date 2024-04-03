@@ -11,12 +11,14 @@ $(document).ready(function() {
 
   $(document).on('submit', '.edit-user-form', function(e) {
     e.preventDefault();
-    var formData = $(this).serialize();
-    var url = $(this).attr('action');
+    let formData = new FormData(this)
+    let url = $(this).attr('action');
     $.ajax({
       url: url,
       type: 'PATCH',
       data: formData,
+      contentType: false, // Set contentType to false when using FormData
+      processData: false,
       dataType: 'script'
     });
   });
