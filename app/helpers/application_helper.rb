@@ -4,12 +4,7 @@ module ApplicationHelper
   end
 
   def user_image(user)
-    p "================"
-    p user.avatar.attached?
-    p "=================="
     if user.avatar.attached?
-      p " ---------------"
-      p url_for(user.avatar)
       url_for(user.avatar)
     else
       'default-user.jpg'

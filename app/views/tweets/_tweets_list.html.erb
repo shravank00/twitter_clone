@@ -24,6 +24,8 @@
     <div id="tweet_<%= tweet.id %>_content">
       <%= render partial: 'tweets/tweet', locals: { tweet: tweet} %>
     </div>
-    <!-- Add more tweet details as needed -->
+    <div class="d-flex" id="tweet-<%= tweet.id %>-like">
+      <%= render partial: 'like_dislike', locals: { tweet: tweet } %>
+    </div>
   </div>
 </div>

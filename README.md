@@ -1,24 +1,54 @@
-# README
+# Twitter Clone
+This is a simple Twitter clone built using Ruby on Rails 7. It allows users to create accounts, post tweets, follow other users, like tweets, and more.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features
 
-Things you may want to cover:
+* User Authentication: Users can sign up, log in, and log out securely.
 
-* Ruby version
+* Tweet Creation: Users can create new tweets with a maximum character limit.
+Tweet Viewing: Users can view their own tweets and tweets from users they follow.
 
-* System dependencies
+* Follow/Unfollow: Users can follow and unfollow other users to see their tweets in their feed.
 
-* Configuration
+* Like/Unlike: Users can like and unlike tweets.
 
-* Database creation
+## Setup
 
-* Database initialization
+#### Clone the repository:
 
-* How to run the test suite
+`git clone https://github.com/your-username/twitter-clone.git`
 
-* Services (job queues, cache servers, search engines, etc.)
+#### Install dependencies:
 
-* Deployment instructions
+`cd twitter-clone`\
+`bundle install`
 
-* ...
+#### Set up the database:
+
+`rails db:create db:migrate`
+
+#### Start the server:
+
+`rails server`
+
+Open your web browser and navigate to http://localhost:3000 to use the application.
+
+### Usage
+* Sign up for a new account or log in with an existing account.
+
+* Create new tweets or view tweets from all the users on homepage.
+
+* User can update their profile.
+
+* User can follow/unfollow other users.
+
+* Like/Unlike tweets by clicking the heart icon.
+
+* Log out when finished using the application.
+
+## Contributing
+Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
+
+## License
+This project is licensed under the MIT License.
+

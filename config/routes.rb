@@ -9,5 +9,11 @@ Rails.application.routes.draw do
       post 'unfollow'
     end
   end
-  resources :tweets
+  resources :tweets do
+    member do
+      post 'like'
+      post 'dislike'
+    end
+  end
+
 end
