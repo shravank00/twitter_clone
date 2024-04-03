@@ -1,0 +1,11 @@
+<% like = current_user.likes.find_by(likeable_id: tweet.id) %>
+<% if like.nil? %>
+  <%= link_to like_tweet_path(tweet), method: :post, remote: true, title: "Like", class: 'me-1' do %>
+    <i class="fa-regular fa-heart text-danger" aria-hidden="true"></i>
+  <% end %>
+<% else %>
+  <%= link_to dislike_tweet_path(tweet), method: :post, remote: true, title: "Unlike", class: 'me-1' do %>
+    <i class="fa fa-heart text-danger" aria-hidden="true"></i>
+  <% end %>
+<% end %>
+<span><%= tweet.likes.count %> Likes</span>

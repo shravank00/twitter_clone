@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :set_tweet, only: [:show, :edit, :update, :destroy, :like, :dislike]
 
   def index
     @tweet = Tweet.new
@@ -50,6 +50,28 @@ class TweetsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tweets_url, notice: 'Tweet was successfully destroyed.' }
       format.js
+    end
+  end
+
+  def like
+    respond_to do |format|
+      if @tweet.likes.create(user_id: current_user.id)
+        format.js
+      else
+        format.html { redirect_to root_path }
+      end
+    end
+  end
+
+  def dislike
+    @like = @tweet.likes.find_by(user_id: current_user.id)
+    respond_to do |format|
+      if @like
+        @like.destroy
+        format.js
+      else
+        format.html { redirect_to root_path }
+      end
     end
   end
 
